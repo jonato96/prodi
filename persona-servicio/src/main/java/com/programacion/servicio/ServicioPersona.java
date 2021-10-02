@@ -8,7 +8,7 @@ public interface ServicioPersona {
 
     void create(Persona persona);
     PersonaDto find (Integer id);
-    List<Persona> findAll();
+    List<PersonaDto> findAll();
     void edit(Persona persona);
     void delete (Integer id);
 

@@ -3,11 +3,13 @@ package com.programacion.servicio;
 import com.programacion.dto.PersonaDto;
 import com.programacion.entidades.Persona;
 import com.programacion.entidades.TipoDireccion;
-
+import com.programacion.proxy.TipoDireccionRest;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
@@ -15,6 +17,9 @@ public class ServicioPersonaImp implements ServicioPersona{
 
     @PersistenceContext
     private EntityManager emp;
+
+    @Inject
+    private TipoDireccionRest microServicioDirec;
 
     @Override
     @Transactional
@@ -28,15 +33,26 @@ public class ServicioPersonaImp implements ServicioPersona{
     public PersonaDto find(Integer id) {
 
        Persona obj =  emp.find(Persona.class,id);
-       return new PersonaDto(obj.getId() ,obj.getCedula(), obj.getNombre(), new TipoDireccion());
+       TipoDireccion tipoDireccion = microServicioDirec.listarPorId(obj.getDireccionId());
+       //System.out.println(tipoDireccion.getDescripcion());
+       return new PersonaDto(obj.getCedula(), obj.getNombre(),tipoDireccion);
        //return emp.find(Persona.class,id);
 
     }
 
     @Override
-    public List<Persona> findAll() {
-        return emp.createQuery("select p from Persona p", Persona.class)
-                .getResultList();
+    public List<PersonaDto> findAll() {
+
+       //return emp.createQuery("select p from Persona p", Persona.class)
+        // .getResultList();
+
+        List<Persona> listado = emp.createQuery("select p from Persona p", Persona.class).getResultList();
+        List<PersonaDto> listadoDto = new ArrayList<>();
+        for (Persona persona:listado) {
+            TipoDireccion tipoDireccion = microServicioDirec.listarPorId(persona.getDireccionId());
+            listadoDto.add(new PersonaDto(persona.getCedula(), persona.getNombre(),tipoDireccion));
+        }
+        return listadoDto;
     }
 
     @Override
@@ -51,7 +67,7 @@ public class ServicioPersonaImp implements ServicioPersona{
     @Transactional
     public void delete(Integer id) {
 
-        emp.remove(id);
+        emp.remove(find(id));
 
     }
 }

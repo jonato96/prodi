@@ -19,7 +19,7 @@ public class PersonaRest {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Persona> listar(){
+    public List<PersonaDto> listar(){
         return servicio.findAll();
     }
 
@@ -43,9 +43,17 @@ public class PersonaRest {
     }
 
     @DELETE
+    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void editar(Integer id){
+    public void eliminar(@PathParam("id") Integer id){
         servicio.delete(id);
+    }
+
+    @GET
+    @Path("/ping")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String hola(){
+        return "Hola mundo desde Persona Rest";
     }
 
 }
