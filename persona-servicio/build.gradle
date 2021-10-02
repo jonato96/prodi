@@ -58,7 +58,7 @@ dependencies {
 
 sourceSets{
     main{
-        output.resourcesDir = file("${buildDir}/classes/java/main")
+        output.resourcesDir = file("build/classes/java/main")
     }
 }
 
