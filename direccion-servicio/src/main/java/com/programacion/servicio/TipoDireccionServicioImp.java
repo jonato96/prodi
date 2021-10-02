@@ -5,6 +5,7 @@ import com.programacion.db.TipoDireccion;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
@@ -14,6 +15,7 @@ public class TipoDireccionServicioImp implements TipoDireccionServicio{
     private EntityManager emp;
 
     @Override
+    @Transactional
     public void create(TipoDireccion direccion) {
         emp.persist(direccion);
     }
@@ -30,11 +32,13 @@ public class TipoDireccionServicioImp implements TipoDireccionServicio{
     }
 
     @Override
+    @Transactional
     public void edit(TipoDireccion direccion) {
         emp.merge(direccion);
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
         emp.remove(find(id));
     }

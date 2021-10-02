@@ -10,3 +10,5 @@ com/programacion/AppMain.java
  com.programacion.AppMain
 com/programacion/rest/TipoDireccionRest.java
  com.programacion.rest.TipoDireccionRest
+com/programacion/rest/PingRest.java
+ com.programacion.rest.PingRest
