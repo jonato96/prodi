@@ -11,8 +11,6 @@ repositories {
     mavenCentral()
 }
 
-
-
 application{
     mainClassName = 'com.programacion.AppMain'
 }

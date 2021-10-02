@@ -1,18 +1,18 @@
-com/programacion/AppMain.java
- com.programacion.AppMain
 com/programacion/entidades/TipoDireccion.java
  com.programacion.entidades.TipoDireccion
-com/programacion/AppRest.java
- com.programacion.AppRest
-com/programacion/rest/PingRest.java
- com.programacion.rest.PingRest
 com/programacion/entidades/Persona.java
  com.programacion.entidades.Persona
+com/programacion/AppRest.java
+ com.programacion.AppRest
 com/programacion/rest/PersonaRest.java
  com.programacion.rest.PersonaRest
 com/programacion/servicio/ServicioPersonaImp.java
  com.programacion.servicio.ServicioPersonaImp
 com/programacion/dto/PersonaDto.java
  com.programacion.dto.PersonaDto
+com/programacion/AppMain.java
+ com.programacion.AppMain
 com/programacion/servicio/ServicioPersona.java
  com.programacion.servicio.ServicioPersona
+com/programacion/rest/PingRest.java
+ com.programacion.rest.PingRest

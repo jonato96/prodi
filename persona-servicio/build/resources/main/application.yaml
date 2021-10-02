@@ -1,9 +1,0 @@
-javax:
-  sql:
-    DataSource:
-      supleDataSource:
-        dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
-        dataSource:
-          url: jdbc:postgresql://localhost:5432/distribuida_repaso
-          user: postgres
-          password: "adminPRO96"
