@@ -2,13 +2,13 @@ com/programacion/rest/AppRest.java
  com.programacion.rest.AppRest
 com/programacion/db/TipoDireccion.java
  com.programacion.db.TipoDireccion
-com/programacion/servicio/TipoDireccionServicio.java
- com.programacion.servicio.TipoDireccionServicio
+com/programacion/rest/TipoDireccionRest.java
+ com.programacion.rest.TipoDireccionRest
 com/programacion/servicio/TipoDireccionServicioImp.java
  com.programacion.servicio.TipoDireccionServicioImp
 com/programacion/AppMain.java
  com.programacion.AppMain
-com/programacion/rest/TipoDireccionRest.java
- com.programacion.rest.TipoDireccionRest
 com/programacion/rest/PingRest.java
  com.programacion.rest.PingRest
+com/programacion/servicio/TipoDireccionServicio.java
+ com.programacion.servicio.TipoDireccionServicio
